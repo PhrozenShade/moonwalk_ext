@@ -11,7 +11,7 @@ function getUrlParameter(sParam) {
 			return sParameterName[1] === undefined ? true : sParameterName[1];
 		}
 	}
-};
+}
 function saveState(params){
     return localStorage.setItem(serialHash, JSON.stringify(params));
 }
@@ -19,26 +19,27 @@ function getState(){
     return JSON.parse(localStorage.getItem(serialHash));
 }
 
-var serialHash = window.location.pathname.split('/')[2];
-var episodeSelected = $('#episode > option:selected');
-var seasonSelected = $('#season > option:selected');
-var storage = getState();
+var serialHash = window.location.pathname.split('/')[2]; // Хэш названия сериала
+var episodeSelected = $('#episode > option:selected'); // Выбранный эпизод
+var seasonSelected = $('#season > option:selected'); // Выбранная эпизод
+var storage = getState(); // Получим объект из localstorage
 
 var episode = +getUrlParameter('episode');
 var season = +getUrlParameter('season');
 if(storage && episode != storage.episode && season != storage.season){
 	episode = +storage.episode;
 	season = +storage.season;
+    // Переход на серию, на которой закончили просмотр
     document.location.href = decodeURIComponent(window.location).replace(/iframe?.*/, 'iframe?')+'season='+season+'&episode='+episode;
 } 
 
-saveState({season:season, episode:episode});
+saveState({season:season, episode:episode}); // Запишем объект в localstorage
 
-$('#player').trigger('click');
+$('#player').trigger('click'); // Начнем отсчет времени
 
 setTimeout(function(){
 	$('#launcher > span').trigger('click');
-},13500); // Клик на лаунчер
+},13500); // Клик на лаунчер и начнем проигрывание
 
 $('#serials_control').after('<div class=wrap><button id=FirstOne class=btn style=float:right>First</button><button id=prevOne class=btn><</button><button id=nextOne class=btn>></button></div>');
 
