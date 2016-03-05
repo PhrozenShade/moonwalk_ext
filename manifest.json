@@ -7,9 +7,6 @@
     "https://www.googleapis.com/*"
   ],
   "icons": {
-    "16" : "16.png",
-    "24" : "24.png",
-    "32" : "32.png",
     "128": "128.png"
   },
   "content_scripts": [
