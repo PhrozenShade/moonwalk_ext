@@ -1,0 +1,22 @@
+.wrap{
+    position:absolute;
+    top:30px;
+    z-index:1000;
+    width:100%;
+}
+.btn{
+    width:33%;
+    height:50px;
+    border-radius:5px;
+    outline:none;
+    background:rgba(0,0,0,0.3);
+    color:white;
+    border:none;
+    margin-left:2px;
+    font-size:30px;
+    cursor:pointer;
+    text-shadow:0 0 2px black;
+}
+.btn:hover{
+    background:rgba(255,255,255,0.5);
+}

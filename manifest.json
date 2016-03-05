@@ -1,0 +1,23 @@
+{
+  "name": "MoonWalk Next!",
+  "version": "1.0.1",
+  "description": "Adds some buttons to moonwalk player (prev,next,first series)",
+  "manifest_version": 2,
+  "permissions": [
+    "https://www.googleapis.com/*"
+  ],
+  "icons": {
+    "16" : "16.png",
+    "24" : "24.png",
+    "32" : "32.png",
+    "128": "128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://moonwalk.cc/*"],
+      "js" : ["jquery-2.1.4.min.js", "contentscript.js"],
+        "css":["style.css"],
+        "all_frames": true
+    }
+  ]
+}
