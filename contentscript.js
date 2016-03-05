@@ -30,7 +30,7 @@ if(storage && episode != storage.episode && season != storage.season){
 	episode = +storage.episode;
 	season = +storage.season;
     // Переход на серию, на которой закончили просмотр
-    document.location.href = decodeURIComponent(window.location).replace(/iframe?.*/, 'iframe?')+'season='+season+'&episode='+episode;
+    document.location.href = decodeURIComponent(window.location).split('?')[0]+'?season='+season+'&episode='+episode;
 } 
 
 saveState({season:season, episode:episode}); // Запишем объект в localstorage
@@ -56,5 +56,5 @@ $('body').on('click', 'button', function(){
     	episode = 1;
     	season = 1;
     }
-    document.location.href = decodeURIComponent(window.location).replace(/iframe?.*/, 'iframe?')+'season='+season+'&episode='+episode; // Чистим от реферера, не красиво, но так проще :)
+    document.location.href = decodeURIComponent(window.location).split('?')[0]+'?season='+season+'&episode='+episode; // Чистим от реферера, не красиво, но так проще :)
 });
